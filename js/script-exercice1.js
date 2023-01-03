@@ -47,6 +47,7 @@ for (const ul of ulAddClass) {
     ul.classList.add("student_list");
 }
 //console.log(ulAddClass);
+
 //2-Add the classes university and attendance to the first <ul>.
 ulAddClass[0].classList.add("university", "attendance");
 //console.log(ulAddClass);

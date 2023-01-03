@@ -34,7 +34,7 @@ let allBooks = [
         alreadyRead: true
     },
     {
-        title: "Un Si Longue Lettre",
+        title: "Une Si Longue Lettre",
         author: "Mariama Bâ",
         image: "https://afriknow.files.wordpress.com/2014/01/une-si-longue-lettre.jpg",
         alreadyRead: false
@@ -56,27 +56,18 @@ let allBooks = [
 let div = document.getElementsByClassName("listBooks")[0];
 
 let table = document.createElement("table");
-let tr1 = document.createElement("tr");
-let tr2 = document.createElement("tr");
-let td1 = document.createElement('td');
-let td2 = document.createElement('td');
-let td3 = document.createElement('td');
-let td4 = document.createElement('td');
+for (const key in allBooks) {
+    let tr = document.createElement("tr");
+    let td1 = document.createElement("td");
+    td1.innerHTML = "<b>" + allBooks[key].title + "</b> written by <b>" + allBooks[key].author + "</b>";
+    if (allBooks[key].alreadyRead) td1.style.color = "red";
+    let td2 = document.createElement("td");
+    td2.innerHTML = '<img src="' + allBooks[key].image + '" width="100px" alt="img' + (parseInt(key) + 1) + '">';
 
-td1.innerHTML = allBooks[0].title + " written by " + allBooks[0].author;
-if(allBooks[0].alreadyRead) td1.style.backgroundColor = 
-td2.innerHTML = '<img src="' + allBooks[0].image + '" width="100px">';
-td3.innerHTML = allBooks[1].title + " written by " + allBooks[1].author;
-td4.innerHTML = '<img src="' + allBooks[1].image + '" width="100px">';
-
-tr1.appendChild(td1);
-tr1.appendChild(td2);
-tr2.appendChild(td3);
-tr2.appendChild(td4);
-
-table.appendChild(tr1);
-table.appendChild(tr2);
-
+    tr.appendChild(td1);
+    tr.appendChild(td2);
+    table.appendChild(tr);
+}
 div.appendChild(table);
 
-console.log(div);
+//console.log(div);
